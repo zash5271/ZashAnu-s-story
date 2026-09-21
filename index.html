@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For ANU ❤️</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Georgia, serif;
+            color: #4a3040;
+            background: linear-gradient(135deg, #f8d7df, #eadcf8, #fce4ec);
+            overflow-x: hidden;
+        }
+
+        .hearts {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .heart-float {
+            position: absolute;
+            bottom: -40px;
+            font-size: 20px;
+            opacity: 0.55;
+            animation: floatUp linear infinite;
+        }
+
+        .heart-float:nth-child(1) { left: 10%; animation-duration: 9s; }
+        .heart-float:nth-child(2) { left: 30%; animation-duration: 12s; animation-delay: 2s; }
+        .heart-float:nth-child(3) { left: 55%; animation-duration: 10s; animation-delay: 4s; }
+        .heart-float:nth-child(4) { left: 78%; animation-duration: 13s; animation-delay: 1s; }
+        .heart-float:nth-child(5) { left: 90%; animation-duration: 11s; animation-delay: 5s; }
+
+        @keyframes floatUp {
+            from { transform: translateY(0) rotate(0deg); }
+            to { transform: translateY(-115vh) rotate(25deg); }
+        }
+
+        .section {
+            position: relative;
+            z-index: 1;
+            width: 92%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 70px 0;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.48);
+            border: 1px solid rgba(255,255,255,0.7);
+            border-radius: 30px;
+            padding: 42px 25px;
+            box-shadow: 0 18px 50px rgba(80,50,70,0.14);
+            backdrop-filter: blur(12px);
+        }
+
+        .hero .card {
+            width: 100%;
+            max-width: 520px;
+        }
+
+        .heart {
+            font-size: 58px;
+            animation: heartbeat 1.5s infinite;
+            margin-bottom: 12px;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.13); }
+        }
+
+        h1 {
+            font-size: clamp(42px, 12vw, 72px);
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        p {
+            line-height: 1.8;
+        }
+
+        .subtitle {
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            border: none;
+            padding: 15px 28px;
+            border-radius: 50px;
+            background: #8e5b78;
+            color: white;
+            font-size: 16px;
+            box-shadow: 0 8px 20px rgba(80,50,70,0.2);
+        }
+
+        .small {
+            margin-top: 20px;
+            font-size: 13px;
+            opacity: 0.7;
+        }
+
+        .story {
+            text-align: center;
+        }
+
+        .timeline {
+            display: grid;
+            gap: 16px;
+            margin-top: 25px;
+        }
+
+        .timeline-item {
+            background: rgba(255,255,255,0.5);
+            border-radius: 22px;
+            padding: 20px;
+            box-shadow: 0 8px 25px rgba(80,50,70,0.08);
+        }
+
+        .timeline-item strong {
+            display: block;
+            font-size: 20px;
+            margin-bottom: 7px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin-top: 25px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 270px;
+            object-fit: cover;
+            border-radius: 22px;
+            box-shadow: 0 10px 25px rgba(80,50,70,0.12);
+        }
+
+        .gallery img:first-child {
+            grid-column: span 2;
+            height: 380px;
+        }
+
+        video {
+            width: 100%;
+            margin-top: 25px;
+            border-radius: 24px;
+            box-shadow: 0 12px 30px rgba(80,50,70,0.15);
+            background: #000;
+        }
+
+        .future {
+            text-align: center;
+        }
+
+        .final {
+            text-align: center;
+            padding-bottom: 100px;
+        }
+
+        .final-note {
+            font-size: 19px;
+        }
+
+        @media (max-width: 520px) {
+            .section {
+                padding: 50px 0;
+            }
+
+            .gallery img {
+                height: 220px;
+            }
+
+            .gallery img:first-child {
+                height: 320px;
+            }
+
+            .card {
+                padding: 32px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="hearts">
+        <div class="heart-float">❤️</div>
+        <div class="heart-float">♡</div>
+        <div class="heart-float">❤️</div>
+        <div class="heart-float">♡</div>
+        <div class="heart-float">❤️</div>
+    </div>
+
+    <section class="section hero">
+        <div class="card">
+            <div class="heart">❤️</div>
+            <h1>For ANU</h1>
+            <p class="subtitle">
+                Kuch kahaniyan waqt leti hain...<br>
+                lekin jab woh wapas milti hain,<br>
+                to aur bhi khoobsurat lagti hain.
+            </p>
+            <a class="btn" href="#story">Open Our Story ✨</a>
+            <p class="small">Made with love ❤️</p>
+        </div>
+    </section>
+
+    <section class="section story" id="story">
+        <div class="card">
+            <h2>Our Story ❤️</h2>
+
+            <p>
+                Hum jab mile thay, tab shayad humein pata bhi nahi tha
+                ke ek din humari kahani itne saal lambi ho jayegi.
+            </p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <strong>5 Years Together</strong>
+                    Bachpan ke woh saal jo humne ek doosre ke saath guzare.
+                </div>
+
+                <div class="timeline-item">
+                    <strong>7 Years Apart</strong>
+                    Phir zindagi ne humein alag kar diya, aur hum ek doosre se door ho gaye.
+                </div>
+
+                <div class="timeline-item">
+                    <strong>Found Each Other Again</strong>
+                    Saat saal baad hum phir ek doosre tak pohanch gaye.
+                    Dono taraf se ek doosre ko dhoonda gaya.
+                </div>
+
+                <div class="timeline-item">
+                    <strong>Together Again ❤️</strong>
+                    Aur aaj hum phir saath hain — apni kahani ka naya chapter likh rahe hain.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="card">
+            <h2>ANU ✨</h2>
+            <p style="text-align:center;">
+                Tumhari woh tasveerain jo meri nazar mein sirf tasveerain nahi...
+                meri favourite memories hain. ❤️
+            </p>
+
+            <div class="gallery">
+                <img src="anu1.jpg" alt="ANU">
+                <img src="anu2.jpg" alt="ANU">
+                <img src="anu3.jpg" alt="ANU">
+                <img src="anu4.jpg" alt="ANU">
+                <img src="anu5.jpg" alt="ANU">
+                <img src="anu6.jpg" alt="ANU">
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="card">
+            <h2>One More Memory 🎥</h2>
+            <p style="text-align:center;">
+                Kuch moments ko sirf dekhna nahi, dobara feel karna hota hai. ❤️
+            </p>
+
+            <video controls playsinline>
+                <source src="anu-video.mp4" type="video/mp4">
+                Tumhara browser video play nahi kar sakta.
+            </video>
+        </div>
+    </section>
+
+    <section class="section future">
+        <div class="card">
+            <h2>Our Next Chapter 💍</h2>
+
+            <p>
+                Abhi hum apni zindagi settle kar rahe hain.
+                Aur phir, taqreeban 3 saal baad, isi kahani ka ek aur
+                khoobsurat chapter shuru hoga —
+                jab hum officially engaged honge. ❤️
+            </p>
+
+            <br>
+
+            <p>
+                Tab tak... let's keep choosing each other. ❤️
+            </p>
+        </div>
+    </section>
+
+    <section class="section final">
+        <div class="card">
+            <div class="heart">❤️</div>
+            <p class="final-note">
+                ANU, kuch log zindagi mein bas aate hain...
+                aur kuch log zindagi ko khoobsurat bana dete hain.
+                Tum unhi mein se ho.
+            </p>
+
+            <br>
+
+            <p>Our story isn't over. ✨</p>
+        </div>
+    </section>
+
+</body>
+</html>
