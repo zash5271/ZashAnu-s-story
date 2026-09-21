@@ -12,332 +12,528 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            font-family: Georgia, serif;
-            color: #4a3040;
-            background: linear-gradient(135deg, #f8d7df, #eadcf8, #fce4ec);
-            overflow-x: hidden;
-        }
-
-        .hearts {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            overflow: hidden;
-            z-index: 0;
-        }
-
-        .heart-float {
-            position: absolute;
-            bottom: -40px;
-            font-size: 20px;
-            opacity: 0.55;
-            animation: floatUp linear infinite;
-        }
-
-        .heart-float:nth-child(1) { left: 10%; animation-duration: 9s; }
-        .heart-float:nth-child(2) { left: 30%; animation-duration: 12s; animation-delay: 2s; }
-        .heart-float:nth-child(3) { left: 55%; animation-duration: 10s; animation-delay: 4s; }
-        .heart-float:nth-child(4) { left: 78%; animation-duration: 13s; animation-delay: 1s; }
-        .heart-float:nth-child(5) { left: 90%; animation-duration: 11s; animation-delay: 5s; }
-
-        @keyframes floatUp {
-            from { transform: translateY(0) rotate(0deg); }
-            to { transform: translateY(-115vh) rotate(25deg); }
-        }
-
-        .section {
-            position: relative;
-            z-index: 1;
-            width: 92%;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 70px 0;
-        }
-
-        .hero {
             min-height: 100vh;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+            font-family: Georgia, serif;
+            background: linear-gradient(135deg, #f8d7df, #eadcf8, #fce4ec);
+            
+            color: #4a3040;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 420px;
             text-align: center;
-        }
-
-        .card {
-            background: rgba(255,255,255,0.48);
-            border: 1px solid rgba(255,255,255,0.7);
+            padding: 45px 25px;
+            background: rgba(255, 255, 255, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.6);
             border-radius: 30px;
-            padding: 42px 25px;
-            box-shadow: 0 18px 50px rgba(80,50,70,0.14);
-            backdrop-filter: blur(12px);
-        }
-
-        .hero .card {
-            width: 100%;
-            max-width: 520px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 40px rgba(80, 50, 70, 0.15);
         }
 
         .heart {
-            font-size: 58px;
+            font-size: 55px;
+            margin-bottom: 15px;
             animation: heartbeat 1.5s infinite;
-            margin-bottom: 12px;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.13); }
         }
 
         h1 {
-            font-size: clamp(42px, 12vw, 72px);
+            font-size: 42px;
             margin-bottom: 15px;
-        }
-
-        h2 {
-            font-size: 30px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        p {
-            line-height: 1.8;
         }
 
         .subtitle {
             font-size: 17px;
+            line-height: 1.7;
             margin-bottom: 30px;
         }
 
-        .btn {
-            display: inline-block;
-            text-decoration: none;
+        button {
             border: none;
-            padding: 15px 28px;
+            padding: 15px 30px;
             border-radius: 50px;
             background: #8e5b78;
             color: white;
             font-size: 16px;
-            box-shadow: 0 8px 20px rgba(80,50,70,0.2);
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(80, 50, 70, 0.2);
+        }
+
+        button:active {
+            transform: scale(0.96);
         }
 
         .small {
-            margin-top: 20px;
+            margin-top: 22px;
             font-size: 13px;
             opacity: 0.7;
         }
 
-        .story {
-            text-align: center;
-        }
-
-        .timeline {
-            display: grid;
-            gap: 16px;
-            margin-top: 25px;
-        }
-
-        .timeline-item {
-            background: rgba(255,255,255,0.5);
-            border-radius: 22px;
-            padding: 20px;
-            box-shadow: 0 8px 25px rgba(80,50,70,0.08);
-        }
-
-        .timeline-item strong {
-            display: block;
-            font-size: 20px;
-            margin-bottom: 7px;
-        }
-
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
-            margin-top: 25px;
-        }
-
-        .gallery img {
-            width: 100%;
-            height: 270px;
-            object-fit: cover;
-            border-radius: 22px;
-            box-shadow: 0 10px 25px rgba(80,50,70,0.12);
-        }
-
-        .gallery img:first-child {
-            grid-column: span 2;
-            height: 380px;
-        }
-
-        video {
-            width: 100%;
-            margin-top: 25px;
-            border-radius: 24px;
-            box-shadow: 0 12px 30px rgba(80,50,70,0.15);
-            background: #000;
-        }
-
-        .future {
-            text-align: center;
-        }
-
-        .final {
-            text-align: center;
-            padding-bottom: 100px;
-        }
-
-        .final-note {
-            font-size: 19px;
-        }
-
-        @media (max-width: 520px) {
-            .section {
-                padding: 50px 0;
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
             }
 
-            .gallery img {
-                height: 220px;
+            50% {
+                transform: scale(1.15);
             }
-
-            .gallery img:first-child {
-                height: 320px;
-            }
-
-            .card {
-                padding: 32px 20px;
-            }
+    
         }
+      
     </style>
 </head>
 
 <body>
 
-    <div class="hearts">
-        <div class="heart-float">❤️</div>
-        <div class="heart-float">♡</div>
-        <div class="heart-float">❤️</div>
-        <div class="heart-float">♡</div>
-        <div class="heart-float">❤️</div>
+    <div class="container">
+
+        <div class="heart">❤️</div>
+
+        <h1>For ANU</h1>
+
+        <p class="subtitle">
+            Some stories take years to find their way back to each other.
+            <br><br>
+            This one is ours.
+        </p>
+
+        <button onclick="openStory()">
+            Open Our Story ✨
+        </button>
+
+        <p class="small">
+            Made with love ❤️
+        </p>
+
     </div>
 
-    <section class="section hero">
-        <div class="card">
-            <div class="heart">❤️</div>
-            <h1>For ANU</h1>
-            <p class="subtitle">
-                Kuch kahaniyan waqt leti hain...<br>
-                lekin jab woh wapas milti hain,<br>
-                to aur bhi khoobsurat lagti hain.
+    <script>
+        function openStory() {document.querySelector(".container").innerHTML = `
+    <div style="text-align:center;">
+
+        <h1 style="font-size:32px; margin-bottom:20px;">
+            Our Story ❤️
+        </h1>
+
+        <img src="anu1.jpg"
+             style="width:100%; border-radius:25px; margin-bottom:20px;">
+
+        <p style="font-size:18px; line-height:1.8;">
+            Heloww its me Anu. ❤️<br>
+            I wana to say amm love u.<br>
+            Iam very happy to have u again in my life.<br>
+            Dekho naww itni mushkik sy code set kiyai taky yh site bna skun apky liyai.
+        </p>
+
+        <button onclick="document.getElementById('page2').scrollIntoView({behavior:'smooth'})">
+            Next ✨
+        </button>
+
+        <div id="page2" style="margin-top:80px;">
+
+            <img src="anu2.jpg"
+                 style="width:100%; border-radius:25px; margin-bottom:20px;">
+
+            <p style="font-size:18px; line-height:1.8;">
+                Awww is picture mein kitny pyary lag rhe ho awwp. ❤️<br><br>
+                wooo!! btana tha ky mein na tmhe bht tang krunge tw apni insurance krwa lena,<br>
+                mera bacha series dekho gay meray sath or mein chaaki b marunge tmhe ahaa! bechara ANAS bole ga phli or akhri glti hy yeh,<br>
+                Han yad aya hairstyle bi bnaonge, Nahun b marunge,<br>
+                Or agr jan churwany ka socha b tw ghr aky glla dba dunge huh!! bara aya jan churany wala. 😂❤️
             </p>
-            <a class="btn" href="#story">Open Our Story ✨</a>
-            <p class="small">Made with love ❤️</p>
+
+            <button onclick="document.getElementById('page3').scrollIntoView({behavior:'smooth'})">
+                Next ✨
+            </button>
+
         </div>
-    </section>
 
-    <section class="section story" id="story">
-        <div class="card">
-            <h2>Our Story ❤️</h2>
+        <div id="page3" style="margin-top:80px;">
 
-            <p>
-                Hum jab mile thay, tab shayad humein pata bhi nahi tha
-                ke ek din humari kahani itne saal lambi ho jayegi.
+            <img src="anu3.jpg"
+                 style="width:100%; border-radius:25px; margin-bottom:20px;">
+
+            <p style="font-size:18px; line-height:1.8;">
+                Jo mujy behria mein tang kia uska b badla lunge. ❤️<br><br>
+                Acha Suno!!apna khyall rkhna bad mein aky mein hrab kr dunge heheeee♡.<br>
+                Yarr lgta hy site ni achi bni,tm hass ni rhay lgta meri 2din ki mehnat waste gaye¡¡.<br>
+                Ni achi?? tww mein kya krun mujsy jesi bnti thi bna di,ab nakhry krnay ki zaroorat nhi huh¡. ❤️
             </p>
 
-            <div class="timeline">
-                <div class="timeline-item">
-                    <strong>5 Years Together</strong>
-                    Bachpan ke woh saal jo humne ek doosre ke saath guzare.
-                </div>
+            <button onclick="document.getElementById('page4').scrollIntoView({behavior:'smooth'})">
+                Next ✨
+            </button>
 
-                <div class="timeline-item">
-                    <strong>7 Years Apart</strong>
-                    Phir zindagi ne humein alag kar diya, aur hum ek doosre se door ho gaye.
-                </div>
+        </div>
 
-                <div class="timeline-item">
-                    <strong>Found Each Other Again</strong>
-                    Saat saal baad hum phir ek doosre tak pohanch gaye.
-                    Dono taraf se ek doosre ko dhoonda gaya.
-                </div>
+        <div id="page4" style="margin-top:80px;">
 
-                <div class="timeline-item">
-                    <strong>Together Again ❤️</strong>
-                    Aur aaj hum phir saath hain — apni kahani ka naya chapter likh rahe hain.
-                </div>
+            <img src="anu4.jpg"
+                 style="width:100%; border-radius:25px; margin-bottom:20px;">
+
+            <p style="font-size:18px; line-height:1.8;">
+                5 saal saath. rhay hm.. ❤️<br><br>
+                Itni pyari pyari memories bnye hmny,blky meri or tmhari tww unique thi naww...<br><br>
+                Donu namuny aik dusry mein interested thay,pta b tha aik dusry ka laikin donu nay zuban ni kholi
+            .<br><br>
+                Wese bta detay tww kya tha,hmaray pass or zyada pyari memories hoti,chalo koi ni abhi b sath hein nawww ab tw or pyari memories bne gee☆. ❤️
+            </p>
+
+            <button onclick="document.getElementById('page5').scrollIntoView({behavior:'smooth'})">
+                Next ✨
+            </button>
+
+        </div>
+
+        <div id="page5" style="margin-top:80px;">
+
+            <img src="anu5.jpg"
+                 style="width:100%; border-radius:25px; margin-bottom:20px;">
+
+            <p style="font-size:18px; line-height:1.8;">
+                7saal bad b hm sath hein ALLHAMDULLILAH. ❤️<br><br>
+                Chalo jahan 7 saal wait kia wahan thora or sahi fir HIM & I,
+            Tusa ki fir koi ni bchaye skna maray kolun♤. 💍
+            </p>
+
+            <button onclick="document.getElementById('page6').scrollIntoView({behavior:'smooth'})">
+                Next ✨
+            </button>
+
+        </div>
+
+        <div id="page6" style="margin-top:80px;">
+
+            <img src="anu6.jpg"
+                 style="width:100%; border-radius:25px; margin-bottom:20px;">
+
+            <p style="font-size:18px; line-height:1.8;">
+                ZAlMA galti nal puri takhi kinya bari okhi bnaye yai mein¡¡... ❤️<br><br>
+                JANU gall suno...mein awai ahni aan itna tang na krni thora ja krsa oo teh mara farzz ana, baki tension ni kini eh na wai mari damkhiyan suni teh hi nassi jao mein kudr jasa¡¡ °°.<br><br>
+                yar miki neendh agyee,2din su code set krni aan,shukr aa set hoi gay...<br>
+                Idhr naray acho pyar dya wai,..♡. ❤️
+            </p>
+            <button onclick="document.getElementById('page7').scrollIntoView({behavior:'smooth'});">
+One More ❤️
+</button>
+
+        </div>
+
+        <div id="page7" style="margin-top:80px;">
+
+            <video controls style="width:100%; border-radius:20px;">
+    <source src="anu.mp4" type="video/mp4">
+</video>
+                
+
+            <h2 style="font-size:28px;">
+                This is just the beginning. ❤️
+            </h2>
+
+            <p style="font-size:18px; line-height:1.8;">
+                Tum haqeeqat nhi HASRAT ho☆
+      Jo mily khawb mein wo DOLAT ho. 
+                Kis trah tmhe chor dun JANA??
+                Tm meri zindagi ki AADAT ho!
+                Dastan ab hatam honay wali hy..
+                Tm meri AKHRI MUHABAT ho❤️
+            </p>
+
+        </div>
+<!-- ================= QUIZ SECTION ================= -->
+
+<section id="anuQuiz" style="
+    margin: 90px auto 40px;
+    width: 92%;
+    max-width: 430px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    position: relative;
+">
+
+    <div id="quizCard" style="
+        background: rgba(255,255,255,0.82);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-radius: 28px;
+        padding: 28px 20px;
+        box-shadow: 0 15px 40px rgba(255,105,150,0.18);
+        border: 1px solid rgba(255,255,255,0.8);
+        position: relative;
+        overflow: hidden;
+    ">
+
+        <div style="font-size:38px; margin-bottom:8px;">💗</div>
+
+        <h2 style="
+            margin: 0 0 8px;
+            font-size: 27px;
+            color: #d94f7b;
+        ">
+            How Well Do You Know Me?
+        </h2>
+
+        <p id="quizIntro" style="
+            color:#777;
+            font-size:15px;
+            line-height:1.5;
+            margin-bottom:22px;
+        ">
+            Chalo dekhte hain ANU mujhe kitna jaante ho... 👀❤️
+        </p>
+
+        <button id="startQuizBtn" onclick="document.getElementById('quizGame').style.display='block'" style="
+            border:none;
+            padding:13px 25px;
+            border-radius:30px;
+            background:linear-gradient(135deg,#ff7fa5,#e75480);
+            color:white;
+            font-size:16px;
+            font-weight:bold;
+            box-shadow:0 8px 20px rgba(231,84,128,0.25);
+        ">
+            Start Quiz ✨
+        </button>
+
+        <div id="quizGame" style="display:none;">
+
+            <div style="
+                display:flex;
+                justify-content:space-between;
+                align-items:center;
+                margin-bottom:15px;
+                color:#d94f7b;
+                font-size:14px;
+                font-weight:bold;
+            ">
+                <span id="questionNumber">Question 1/5</span>
+                <span id="scoreText">Score: 0</span>
             </div>
-        </div>
-    </section>
 
-    <section class="section">
-        <div class="card">
-            <h2>ANU ✨</h2>
-            <p style="text-align:center;">
-                Tumhari woh tasveerain jo meri nazar mein sirf tasveerain nahi...
-                meri favourite memories hain. ❤️
-            </p>
-
-            <div class="gallery">
-                <img src="anu1.jpg" alt="ANU">
-                <img src="anu2.jpg" alt="ANU">
-                <img src="anu3.jpg" alt="ANU">
-                <img src="anu4.jpg" alt="ANU">
-                <img src="anu5.jpg" alt="ANU">
-                <img src="anu6.jpg" alt="ANU">
+            <div style="
+                height:7px;
+                background:#f8dce5;
+                border-radius:10px;
+                overflow:hidden;
+                margin-bottom:22px;
+            ">
+                <div id="quizProgress" style="
+                    height:100%;
+                    width:20%;
+                    background:linear-gradient(90deg,#ff8fb1,#e75480);
+                    border-radius:10px;
+                    transition:width .4s ease;
+                "></div>
             </div>
-        </div>
-    </section>
 
-    <section class="section">
-        <div class="card">
-            <h2>One More Memory 🎥</h2>
-            <p style="text-align:center;">
-                Kuch moments ko sirf dekhna nahi, dobara feel karna hota hai. ❤️
-            </p>
+            <h3 id="questionText" style="
+                font-size:20px;
+                line-height:1.45;
+                color:#444;
+                margin-bottom:22px;
+            "></h3>
 
-            <video controls playsinline>
-                <source src="anu-video.mp4" type="video/mp4">
-                Tumhara browser video play nahi kar sakta.
-            </video>
-        </div>
-    </section>
+            <div id="optionsBox"></div>
+            <button id="nextQuestionBtn" style="display:none; margin-top:20px;">
+Next Question ➜
+</button>
+            <div id="testQuestion" style="font-size:18px; margin-top:15px;">
+Question 1: Agar hum dono ko chance mile, to hum kahan ghoomne jayenge? ❤️
+</div>
+<div id="q1">
+<button onclick="this.textContent='Wrong! 💔';document.body.style.transform='translateX(-10px)';setTimeout(()=>document.body.style.transform='translateX(10px)',80);setTimeout(()=>document.body.style.transform='translateX(-7px)',160);setTimeout(()=>document.body.style.transform='translateX(7px)',240);setTimeout(()=>document.body.style.transform='',320)">Turkey 🇹🇷</button>
+<button onclick="this.textContent='Wrong! 💔';document.body.style.transform='translateX(-10px)';setTimeout(()=>document.body.style.transform='translateX(10px)',80);setTimeout(()=>document.body.style.transform='translateX(-7px)',160);setTimeout(()=>document.body.style.transform='translateX(7px)',240);setTimeout(()=>document.body.style.transform='',320)">China 🇨🇳</button>
+<button onclick="this.textContent='Wrong! 💔';document.body.style.transform='translateX(-10px)';setTimeout(()=>document.body.style.transform='translateX(10px)',80);setTimeout(()=>document.body.style.transform='translateX(-7px)',160);setTimeout(()=>document.body.style.transform='translateX(7px)',240);setTimeout(()=>document.body.style.transform='',320)">Karachi 🌊</button>
+<button onclick="if(this.dataset.answered)return;this.dataset.answered='yes';quizScore++;document.getElementById('scoreText').textContent='Score '+quizScore;this.textContent='Correct! ❤️✨'; for(let i=0;i<25;i++){let h=document.createElement('span');h.textContent='❤️';h.style.position='fixed';h.style.left=Math.random()*100+'vw';h.style.top='-30px';h.style.fontSize='24px';h.style.zIndex='99999';h.style.transition='top 1.8s linear';document.body.appendChild(h);setTimeout(()=>h.style.top='100vh',20);setTimeout(()=>h.remove(),1900)}">Kashmir 🏔️</button>
 
-    <section class="section future">
-        <div class="card">
-            <h2>Our Next Chapter 💍</h2>
+<div style="font-size:18px; margin-top:25px; margin-bottom:15px;">
+<button onclick="document.getElementById('question2').scrollIntoView({behavior:'smooth'});" style="margin-top:20px; background:#ff8fb1; color:white; border:none; padding:12px 24px; border-radius:25px; font-size:16px; font-weight:bold; box-shadow:0 6px 15px rgba(255,143,177,0.35);">
+    Next Question ➜
+</button>
+</div>
+<div id="question2">
+MCQ 2: Main tumhare saath sabse zyada kya...
+</div>
 
-            <p>
-                Abhi hum apni zindagi settle kar rahe hain.
-                Aur phir, taqreeban 3 saal baad, isi kahani ka ek aur
-                khoobsurat chapter shuru hoga —
-                jab hum officially engaged honge. ❤️
-            </p>
+<button onclick="this.textContent='Wrong! 💔';document.body.style.transform='translateX(-10px)';setTimeout(()=>document.body.style.transform='translateX(10px)',80);setTimeout(()=>document.body.style.transform='translateX(-7px)',160);setTimeout(()=>document.body.style.transform='translateX(7px)',240);setTimeout(()=>document.body.style.transform='',320)">Tumhare saath long walk 🚶‍♀️</button>
 
-            <br>
+<button onclick="if(this.dataset.answered)return;this.dataset.answered='yes';quizScore++;document.getElementById('scoreText').textContent='Score '+quizScore;this.textContent='Correct! ❤️✨'; for(let i=0;i<25;i++){let h=document.createElement('span');h.textContent='❤️';h.style.position='fixed';h.style.left=Math.random()*100+'vw';h.style.top='-30px';h.style.fontSize='24px';h.style.zIndex='99999';h.style.transition='top 1.8s linear';document.body.appendChild(h);setTimeout(()=>h.style.top='100vh',20);setTimeout(()=>h.remove(),1900)}">Chaaki marna 😂</button>
 
-            <p>
-                Tab tak... let's keep choosing each other. ❤️
-            </p>
-        </div>
-    </section>
+<button onclick="this.textContent='Wrong! 💔';document.body.style.transform='translateX(-10px)';setTimeout(()=>document.body.style.transform='translateX(10px)',80);setTimeout(()=>document.body.style.transform='translateX(-7px)',160);setTimeout(()=>document.body.style.transform='translateX(7px)',240);setTimeout(()=>document.body.style.transform='',320)">Dinner karna 🍽️</button>
 
-    <section class="section final">
-        <div class="card">
-            <div class="heart">❤️</div>
-            <p class="final-note">
-                ANU, kuch log zindagi mein bas aate hain...
-                aur kuch log zindagi ko khoobsurat bana dete hain.
-                Tum unhi mein se ho.
-            </p>
+<button onclick="this.textContent='Wrong! 💔';document.body.style.transform='translateX(-10px)';setTimeout(()=>document.body.style.transform='translateX(10px)',80);setTimeout(()=>document.body.style.transform='translateX(-7px)',160);setTimeout(()=>document.body.style.transform='translateX(7px)',240);setTimeout(()=>document.body.style.transform='',320)">Tumhare saath movie dekhna 🎬</button>
+<div style="font-size:18px; margin-top:25px; margin-bottom:15px;">
+<button onclick="document.getElementById('question3').scrollIntoView({behavior:'smooth'});" style="margin-top:20px; background:#ff8fb1; color:white; border:none; padding:12px 24px; border-radius:25px; font-size:16px; font-weight:bold; box-shadow:0 6px 15px rgba(255,143,177,0.35);">
+    Next Question ➜
+</button>
+<div id="question3">
+MCQ 3: Main tumhein sabse zyada kis cheez par tease karungi?
+</div>
 
-            <br>
 
-            <p>Our story isn't over. ✨</p>
-        </div>
-    </section>
+<button onclick="this.textContent='Wrong! 💔';document.body.style.transform='translateX(-10px)';setTimeout(()=>document.body.style.transform='translateX(10px)',80);setTimeout(()=>document.body.style.transform='translateX(-7px)',160);setTimeout(()=>document.body.style.transform='translateX(7px)',240);setTimeout(()=>document.body.style.transform='',320)">Tumhari smile 😄</button>
+
+<button onclick="this.textContent='Wrong! 💔';document.body.style.transform='translateX(-10px)';setTimeout(()=>document.body.style.transform='translateX(10px)',80);setTimeout(()=>document.body.style.transform='translateX(-7px)',160);setTimeout(()=>document.body.style.transform='translateX(7px)',240);setTimeout(()=>document.body.style.transform='',320)">Tumhari hairstyle 😎</button>
+
+<button onclick="this.textContent='Wrong! 💔';document.body.style.transform='translateX(-10px)';setTimeout(()=>document.body.style.transform='translateX(10px)',80);setTimeout(()=>document.body.style.transform='translateX(-7px)',160);setTimeout(()=>document.body.style.transform='translateX(7px)',240);setTimeout(()=>document.body.style.transform='',320)">Tumhari hairstyle 😎</button>
+
+<button <button onclick="if(this.dataset.answered)return;this.dataset.answered='yes';quizScore++;document.getElementById('scoreText').textContent='Score '+quizScore;this.textContent='Correct! ❤️✨'; for(let i=0;i<25;i++){let h=document.createElement('span');h.textContent='❤️';h.style.position='fixed';h.style.left=Math.random()*100+'vw';h.style.top='-30px';h.style.fontSize='24px';h.style.zIndex='99999';h.style.transition='top 1.8s linear';document.body.appendChild(h);setTimeout(()=>h.style.top='100vh',20);setTimeout(()=>h.remove(),1900)}">Har choti choti baat par 😂</button>
+<div style="font-size:18px; margin-top:25px; margin-bottom:15px;">
+<button onclick="document.getElementById('question4').scrollIntoView({behavior:'smooth'});" style="margin-top:20px; background:#ff8fb1; color:white; border:none; padding:12px 24px; border-radius:25px; font-size:16px; font-weight:bold; box-shadow:0 6px 15px rgba(255,143,177,0.35);">
+    Next Question ➜
+
+</button>
+<div id="question4">
+MCQ 4: Hamari story mein kitne saal ka separation raha?
+
+</div>
+
+<button onclick="this.textContent='Wrong! 💔';document.body.style.transform='translateX(-10px)';setTimeout(()=>document.body.style.transform='translateX(10px)',80);setTimeout(()=>document.body.style.transform='translateX(-7px)',160);setTimeout(()=>document.body.style.transform='translateX(7px)',240);setTimeout(()=>document.body.style.transform='',320)">5 saal</button>
+
+<button onclick="this.textContent='Wrong! 💔';document.body.style.transform='translateX(-10px)';setTimeout(()=>document.body.style.transform='translateX(10px)',80);setTimeout(()=>document.body.style.transform='translateX(-7px)',160);setTimeout(()=>document.body.style.transform='translateX(7px)',240);setTimeout(()=>document.body.style.transform='',320)">6 saal</button>
+
+<button <button onclick="if(this.dataset.answered)return;this.dataset.answered='yes';quizScore++;document.getElementById('scoreText').textContent='Score '+quizScore;this.textContent='Correct! ❤️✨'; for(let i=0;i<25;i++){let h=document.createElement('span');h.textContent='❤️';h.style.position='fixed';h.style.left=Math.random()*100+'vw';h.style.top='-30px';h.style.fontSize='24px';h.style.zIndex='99999';h.style.transition='top 1.8s linear';document.body.appendChild(h);setTimeout(()=>h.style.top='100vh',20);setTimeout(()=>h.remove(),1900)}">7 saal</button>
+
+<button onclick="this.textContent='Wrong! 💔';document.body.style.transform='translateX(-10px)';setTimeout(()=>document.body.style.transform='translateX(10px)',80);setTimeout(()=>document.body.style.transform='translateX(-7px)',160);setTimeout(()=>document.body.style.transform='translateX(7px)',240);setTimeout(()=>document.body.style.transform='',320)">8 saal</button>
+<div style="font-size:18px; margin-top:25px; margin-bottom:15px;">
+<button onclick="document.getElementById('question5').scrollIntoView({behavior:'smooth'});" style="margin-top:20px; background:#ff8fb1; color:white; border:none; padding:12px 24px; border-radius:25px; font-size:16px; font-weight:bold; box-shadow:0 6px 15px rgba(255,143,177,0.35);">
+    Next Question ➜
+</button>
+<div id="question5">
+MCQ 5: Hamari story ka future chapter...
+
+</div>
+
+<button onclick="this.textContent='Wrong! 💔';document.body.style.transform='translateX(-10px)';setTimeout(function(){document.body.style.transform='translateX(10px)'},80);setTimeout(function(){document.body.style.transform='translateX(-7px)'},160);setTimeout(function(){document.body.style.transform='translateX(7px)'},240);setTimeout(function(){document.body.style.transform='';document.getElementById('finalResult').innerHTML='Final Score: '+quizScore+' / 5<br><br>ANU, yawr apny glat kr diya. '},320);">
+Sirf friendship ❤️
+</button>
+</button>
+
+<button onclick="if(this.dataset.answered)return;this.dataset.answered='yes';quizScore++;document.getElementById('scoreText').textContent='Score '+quizScore;this.textContent='Correct! ❤️✨';document.getElementById('finalResult').innerHTML='Final Score: '+quizScore+' / 5<br><br> JANU!! very WELLDONE♡ you know me very WELL!!!❤️✨';">
+Official engagement 💍
+</button>
+
+<button onclick="this.textContent='Wrong! 💔';document.body.style.transform='translateX(-10px)';setTimeout(function(){document.body.style.transform='translateX(10px)'},80);setTimeout(function(){document.body.style.transform='translateX(-7px)'},160);setTimeout(function(){document.body.style.transform='translateX(7px)'},240);setTimeout(function(){document.body.style.transform='';document.getElementById('finalResult').innerHTML='Final Score: '+quizScore+' / 5<br><br>ANU, yawr awpny glat krdia!!. '},320);">
+Bas memories 📸
+</button>
+
+<button onclick="this.textContent='Wrong! 💔';document.body.style.transform='translateX(-10px)';setTimeout(function(){document.body.style.transform='translateX(10px)'},80);setTimeout(function(){document.body.style.transform='translateX(-7px)'},160);setTimeout(function(){document.body.style.transform='translateX(7px)'},240);setTimeout(function(){document.body.style.transform='';document.getElementById('finalResult').innerHTML='Final Score: '+quizScore+' / 5<br><br>ANU, yeh kia awpky answer glat hein. '},320);">
+Kuch bhi nahi 😭
+</button>
+          <section style="text-align:center; margin:70px 20px 40px;"><p style="font-size:18px; line-height:1.7;">
+          <div id="finalResult" style="margin-top:25px; padding:20px; border-radius:20px; background:#d94f7d; text-align:center; font-size:18px; font-weight:bold; color:white;">
+</div>
+    Okay ANU... bas itna hi tha. 🫶🏻<br><br>
+    5 saal ki kahani,<br>
+    7 saal ka gap,<br>
+    aur phir somehow... <b>back to you. ❤️</b>
+</p>
+
+<p style="font-size:20px; margin-top:30px;">
+    Abhi story khatam nahi hui... 👀
+</p>
+
+<p style="font-size:17px; line-height:1.7;">
+    Actually,<br>
+    <b>abhi toh asli wali story shuru honi hai. ❤️</b>
+</p>
+
+<div style="
+    margin:35px auto;
+    padding:18px;
+    max-width:320px;
+    border:1px dashed rgba(255,255,255,0.5);
+    border-radius:20px;
+">
+    <div style="font-size:14px; opacity:0.7;">
+        OUR NEXT CHAPTER
+    </div>
+
+    <div style="
+        font-size:24px;
+        margin-top:8px;
+        letter-spacing:2px;
+    ">
+        💍❤️
+    </div>
+
+    <div style="
+        font-size:18px;
+        margin-top:8px;
+        font-style:italic;
+    ">
+        To be continued...
+    </div>
+</div>
+
+<p style="font-size:16px; opacity:0.8;">
+    Until then...<br>
+    <b>stay my favourite person. ❤️</b>
+</p>
+
+</section>
+            <div id="answerMessage" style="
+            
+                min-height:25px;
+                
+                margin
+                text-align:center;>
+                
+    </div>
+    
+`;
+                      currentQuestion = 1;
+                              function updateQuestionNumber(num){
+    document.getElementById('questionNumber').textContent = 'Question ' + num + ' / 5';
+                              }
+
+                              document.querySelectorAll('#quizGame button').forEach(function(btn){
+    btn.addEventListener('click', function(){
+        if(this.textContent.includes('Next Question')){
+            currentQuestion++;
+            updateQuestionNumber(currentQuestion);
+        }
+    });
+});
+quizScore = 0;        
+   function showFinalResult(){
+    let result = document.getElementById('finalResult');
+    let message = '';
+
+    if(quizScore === 5){
+        message = "Okayyy ANU! Tum mujhe kaafi achi tarah jaante ho. ❤️✨";
+    }else if(quizScore === 4){
+        message = "Almost perfect! Thora sa aur mujhe samajhna baqi hai. 😌❤️";
+    }else if(quizScore === 3){
+        message = "Hmm... lagta hai mujhe tumhein aur hints dene padenge. 😂❤️";
+    }else if(quizScore === 2){
+        message = "ANU, ye test tumhare liye thora mushkil tha shayad. 😭😂";
+    }else if(quizScore === 1){
+        message = "Accha ji... tumhein mujhe aur jaan'na padega. 😝❤️";
+    }else{
+        message = "Okay... ab proper study session zaroori hai. 😂💔";
+    }
+
+    result.innerHTML = "Final Score: " + quizScore + " / 5<br><br>" + message;
+   } 
+                              document.querySelectorAll('#question5 button').forEach(function(btn){
+    btn.addEventListener('click', function(){
+        if(!document.getElementById('finalResult').innerHTML.trim()){
+            showFinalResult();
+        }
+    });
+});
+      document.body.style.minHeight = "3000px";   
+                              
+        
+      
+      }
+    </script>
 
 </body>
+  
 </html>
